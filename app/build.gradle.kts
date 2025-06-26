@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
     kotlin("kapt")
+    id("kotlin-kapt")
 }
 
 android {
@@ -74,4 +75,6 @@ dependencies {
 
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
+
+    kapt("androidx.room:room-compiler:2.7.2")
 }

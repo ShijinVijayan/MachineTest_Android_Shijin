@@ -7,6 +7,7 @@ import com.example.machinetest_android_shijin.data.local.ShoppingCartDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -16,9 +17,9 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(appContext: Context): ShoppingCartDatabase =
+    fun provideDatabase(@ApplicationContext context: Context): ShoppingCartDatabase =
         Room.databaseBuilder(
-            appContext,
+            context,
             ShoppingCartDatabase::class.java,
             "shopping_cart.db"
         ).build()
